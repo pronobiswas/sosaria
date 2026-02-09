@@ -329,6 +329,22 @@
       </ul>
     </nav>
 
+    <section id="loader"
+        class="w-full h-screen flex justify-center items-center bg-[url('./images/BGDark.png')] bg-[length:100%_100%] absolute top-0 left-0 z-50  ">
+        <!-- ====animateContainer==== -->
+        <div class="flip-card w-[500px] aspect-square [perspective:1000px] opacity-10">
+            <div class="flip-card-inner relative w-full max-w-[500px] h-full max-h-[500px] text-center [transform-style:preserve-3d]  ">
+                <div class="flip-card-front absolute w-full h-full [backface-visibility:hidden] rounded-lg flex items-center justify-center ">
+                    <img src="./images/logo.png" alt="coin" class="w-full h-full obj-cover">
+                </div>
+                <div class="flip-card-back absolute w-full h-full [backface-visibility:hidden] rounded-lg flex items-center justify-center [transform:rotateY(180deg)]">
+                    <img src="./images/logo.png" alt="coin" class="w-full h-full obj-cover">
+                </div>
+            </div>
+        </div>
+        <!-- ====animateContainer==== -->
+    </section>
+
     <!-- home page content here  -->
     <main
       class="relative min-h-screen w-full flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat"
@@ -676,5 +692,59 @@
 
 
     <script src="script.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+    <!-- <script src="./newScript.js"></script> -->
+     <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.to(".flip-card", {
+                opacity:1,
+                duration: 0.1,
+                ease: "none"
+            });
+            const tl = gsap.timeline();
+
+            tl.from(".flip-card-inner", {
+                y: -500,
+                rotateY: 360,
+                duration: 1,
+                ease: "none"
+            })
+            .to(".flip-card-inner", {
+                scale: 3,
+                duration: 0.5,
+                ease: "none"
+            })
+            .to("#loader", {
+                opacity:0,
+                duration:1,
+                oncomplete:()=>{
+                    document.getElementById('loader').style.display="none";
+                }
+            });
+            const scrollWrappers = document.querySelectorAll('.scrollWrapper');
+            scrollWrappers.forEach((elm,idx)=>{
+                const paper = elm.querySelector('.scrollPaper')
+                const tl2 = gsap.timeline({
+                    scrollTrigger:{
+                        trigger:elm,
+                        start:'top 70%',
+                        end:'+=500',
+                        scrub:true,
+                        markers:true
+                    }
+                });
+    
+                tl2.to(paper,{
+                    height:500,
+                    duration:1,
+                    ease:'none'
+                })
+            })
+            
+        });
+     </script>
   </body>
 </html>

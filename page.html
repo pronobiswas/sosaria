@@ -1,0 +1,251 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+        --color-clifford: #da373d;
+      }
+      .middleCenter{
+        @apply flex justify-center items-center
+      }
+      .animateContainer{
+        width: 500px;
+        aspect-ratio: 1/1;
+      }
+      .flip-card {
+        width: 500px;
+        aspect-ratio: 1/1;
+        perspective: 1000px;
+        opacity: 0.1;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      height: 100%;
+      max-height: 500px;
+      text-align: center;
+      transform-style: preserve-3d;
+      transform: translateY(-400);
+    }
+
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+    }
+
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+
+
+    .myHeading {
+        width: fit-content;
+        height: auto;
+        line-height: .9;
+        padding-bottom: 15px;
+        background: url('./images/teaxture.png') repeat;
+        background-size: contain;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; 
+        -webkit-text-stroke: 2px #331e00;
+        text-stroke: 2px #422700;
+    }
+    </style>
+    <link rel="stylesheet" href="./mystyle.css">
+</head>
+
+<body>
+    <!-- %%%%%%%%%%% Loader %%%%%%%%%% -->
+    <section id="loader"
+        class="w-full h-screen flex justify-center items-center bg-[url('./images/BGDark.png')] bg-[length:100%_100%] absolute top-0 left-0 z-50  ">
+        <!-- ====animateContainer==== -->
+        <div class="flip-card">
+            <div class="flip-card-inner ">
+                <div class="flip-card-front">
+                    <img src="./images/logo.png" alt="coin" class="w-full h-full obj-cover">
+                </div>
+                <div class="flip-card-back">
+                    <img src="./images/logo.png" alt="coin" class="w-full h-full obj-cover">
+                </div>
+            </div>
+        </div>
+        <!-- ====animateContainer==== -->
+    </section>
+    <!-- %%%%%%%%%%% Loader %%%%%%%%%% -->
+    <!-- &&&&&&&&&&&&&& HEADER &&&&&&&&&&&&&&& -->
+    <header id="header"
+        class="w-full h-auto middleCenter bg-[url('./images/header-bg.png')] bg-[length:100%_100%] p-5 pb-3 ">
+
+        <img src="./images/logo.png" class="w-24" alt="logo">
+        <h1 class="myHeading text-7xl font-bold">Age of Sosaria</h1>
+
+    </header>
+    <nav id="navBar" class="w-full h-auto middleCenter bg-[url('./images/nav-bg.png')] bg-[length:100%_100%] p-6">
+        <ul class="w-full max-w-md text-amber-600 middleCenter gap-8 ">
+            <li>Home</li>
+            <li>Getting started</li>
+            <li>Rules</li>
+            <li>contact us</li>
+        </ul>
+    </nav>
+    <!-- &&&&&&&&&&&&&& HEADER &&&&&&&&&&&&&&& -->
+
+    <!-- ************* MAIN ************* -->
+    <main id="main"
+        class="w-full h-auto min-h-screen w-full h-auto  bg-[url('./images/BGDark.png')] bg-[length:100%_100%] bg-fixed">
+        <!-- &&&&&&&&&& sectiion one &&&&&&&&&&& -->
+        <section id="sectionOne" class="w-full h-auto middleCenter">
+            <div class="scrollWrapper w-full h-auto min-h-[550px] max-w-[1120px] p-5">
+                <div class="scrollHandle w-full h-14 bg-yellow-500"></div>
+                <div class="w-full h-auto bg-green-500 p-8">
+                    <h2 class="text-4xl text-center">Lorem ipsum dolor sit amet.</h2>
+                    <p class="text-xl text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto porro atque dolore maiores libero nisi, inventore natus expedita? Necessitatibus, nulla.</p>
+                    <p class="text-xl text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto porro atque dolore maiores libero nisi, inventore natus expedita? Necessitatibus, nulla.</p>
+                    <p class="text-xl text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi repellendus reiciendis unde fugiat quisquam ipsa!</p>
+                </div>
+            </div>
+        </section>
+        <!-- &&&&&&&&&& sectiion one &&&&&&&&&&& -->
+
+        <!-- &&&&&&&&&& sectiion Two &&&&&&&&&&& -->
+        <section id="sectionTwo" class="w-full h-auto middleCenter">
+            <div class="scrollWrapper w-full h-auto max-w-[1120px] bg-[url('./images/large-bg.png')] bg-[length:100%_100%]">
+                <div class="scrollHandle w-full h-14"></div>
+                <div class="scrollPaper w-full" style="height: 0px; overflow-y: hidden;">
+                    <h2 class="text-4xl text-center">Lorem ipsum dolor sit amet.</h2>
+                    <p class="text-xl text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto porro atque dolore maiores libero nisi, inventore natus expedita? Necessitatibus, nulla.</p>
+                    <p class="text-xl text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto porro atque dolore maiores libero nisi, inventore natus expedita? Necessitatibus, nulla.</p>
+                    <p class="text-xl text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi repellendus reiciendis unde fugiat quisquam ipsa!</p>
+                </div>
+            </div>
+        </section>
+        <!-- &&&&&&&&&& sectiion Two &&&&&&&&&&& -->
+
+         <!-- &&&&&&&&&& sectiion Three &&&&&&&&&&& -->
+        <section id="sectionThree" class="w-full h-auto middleCenter">
+            <div class="scrollWrapper w-full h-auto min-h-[550px] max-w-[1120px] bg-red-500 p-5">
+                <div class="scrollHandle w-full h-14 bg-yellow-500"></div>
+                <div class="scrollPaper w-full bg-green-500 p-8" style="height: 0px; overflow-y: hidden;">
+                    <h2 class="text-4xl text-center">Lorem ipsum dolor sit amet.</h2>
+                    <p class="text-xl text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto porro atque dolore maiores libero nisi, inventore natus expedita? Necessitatibus, nulla.</p>
+                    <p class="text-xl text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto porro atque dolore maiores libero nisi, inventore natus expedita? Necessitatibus, nulla.</p>
+                    <p class="text-xl text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi repellendus reiciendis unde fugiat quisquam ipsa!</p>
+                </div>
+            </div>
+        </section>
+        <!-- &&&&&&&&&& sectiion four &&&&&&&&&&& -->
+
+        <section id="sectionFour" class="w-full h-auto middleCenter">
+            <div class="scrollWrapper w-full h-auto min-h-[550px] max-w-[1120px] bg-red-500 p-5">
+                <div class="scrollHandle w-full h-14 bg-yellow-500"></div>
+                <div class="scrollPaper w-full bg-green-500 p-8" style="height: 0px; overflow-y: hidden;">
+                    <h2 class="text-4xl text-center">Lorem ipsum dolor sit amet.</h2>
+                    <p class="text-xl text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto porro atque dolore maiores libero nisi, inventore natus expedita? Necessitatibus, nulla.</p>
+                    <p class="text-xl text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto porro atque dolore maiores libero nisi, inventore natus expedita? Necessitatibus, nulla.</p>
+                    <p class="text-xl text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi repellendus reiciendis unde fugiat quisquam ipsa!</p>
+                </div>
+            </div>
+        </section>
+        <!-- &&&&&&&&&& sectiion four &&&&&&&&&&& -->
+
+    </main>
+    <!-- ************* MAIN ************* -->
+    <footer id="footer" class="w-full h-auto flex flex-col items-center justify-center gap-5 p-5 py-12 bg-amber-900">
+        <!-- ===row1== -->
+        <div class="w-full h-auto middleCenter gap-8 text-amber-600">
+            <span>download</span>
+            <span>|</span>
+            <span>Privecy</span>
+            <span>|</span>
+            <span>Rules</span>
+        </div>
+        <!-- ===row1== -->
+        <div class="middleCenter text-amber-600">
+            <p class="middleCenter">
+                <img src="/images/logo.png" alt="logo" width="40">
+                <span>©Age of Sosaria</span>
+            </p>
+            <p>Custom Ultima Online Shard</p>
+        </div>
+        <!-- ===row== -->
+        <div class="middleCenter gap-5 text-amber-600">
+            <span>Privacy Policy</span>
+            <span>Terms of Service</span>
+        </div>
+    </footer>
+
+
+    <!-- ==========script=s======= -->\
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+    <!-- <script src="./newScript.js"></script> -->
+     <!-- <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.to(".flip-card", {
+                opacity:1,
+                duration: 0.1,
+                ease: "none"
+            });
+            const tl = gsap.timeline();
+
+            tl.from(".flip-card-inner", {
+                y: -500,
+                rotateY: 360,
+                duration: 1,
+                ease: "none"
+            })
+            .to(".flip-card-inner", {
+                scale: 3,
+                duration: 0.5,
+                ease: "none"
+            })
+            .to("#loader", {
+                opacity:0,
+                duration:1,
+                oncomplete:()=>{
+                    document.getElementById('loader').style.display="none";
+                }
+            });
+            const scrollWrappers = document.querySelectorAll('.scrollWrapper');
+            scrollWrappers.forEach((elm,idx)=>{
+                const paper = elm.querySelector('.scrollPaper')
+                const tl2 = gsap.timeline({
+                    scrollTrigger:{
+                        trigger:elm,
+                        start:'top 70%',
+                        end:'+=500',
+                        scrub:true,
+                        markers:true
+                    }
+                });
+    
+                tl2.to(paper,{
+                    height:500,
+                    duration:1,
+                    ease:'none'
+                })
+            })
+            
+        });
+     </script> -->
+
+</body>
+
+</html>

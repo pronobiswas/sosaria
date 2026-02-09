@@ -1,0 +1,17 @@
+h1.headerHeading {
+  width: 100%;
+  height: auto;
+  font-size: 76px;
+  font-weight: 700;
+  text-transform: normal;
+  line-height: 1.2;
+  font-family: "font1", serif;
+  letter-spacing: -2px;
+  background: url("./images/teaxture.png") repeat;
+  background-size: contain;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 193, 113, 0);
+  -webkit-text-stroke: 2px #331e00;
+  text-stroke: 2px #422700;
+  text-shadow: 0 0 5px rgba(255, 169, 56, 0.342);
+}/*# sourceMappingURL=mystyle.css.map */
