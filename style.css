@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap");
-@font-face {
-  font-family: 'font1';
-  src: url('./font1.ttf') format('truetype');
-}
+  @font-face {
+    font-family: 'font1';
+    src: url('./font1.ttf') format('truetype');
+  }
 @font-face {
   font-family: 'SpecialElite-Regular';
   src: url('./SpecialElite-Regular.ttf') format('truetype');
