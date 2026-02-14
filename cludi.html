@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age of Sosaria - Custom Ultima Online Shard</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @font-face {
+        font-family: "font1";
+        src: url("./font1.ttf") format("truetype");
+      }
+      
+      .font1 {
+        font-family: "font1", sans-serif;
+      }
+      
+      .middleCenter {
+        @apply flex justify-center items-center;
+      }
+
+      /* Loader Animation */
+      .flip-card {
+        width: 500px;
+        aspect-ratio: 1/1;
+        perspective: 1000px;
+        opacity: 0.1;
+      }
+      
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        height: 100%;
+        max-height: 500px;
+        text-align: center;
+        transform-style: preserve-3d;
+        transform: translateY(-400px);
+      }
+      
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .flip-card-back {
+        transform: rotateY(180deg);
+      }
+
+      /* Typography Styles */
+      .myHeading {
+        font-family: "font1";
+        width: fit-content;
+        height: auto;
+        line-height: 0.9;
+        padding-bottom: 15px;
+        background: url("./images/teaxture.png") repeat;
+        background-size: contain;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke: 2px #331e00;
+        text-stroke: 2px #422700;
+      }
+      
+      .sectionHeading {
+        width: fit-content;
+        height: auto;
+        margin: 0 auto;
+        font-size: 56px;
+        font-weight: 700;
+        font-family: "font1", serif;
+        letter-spacing: -2px;
+        background: url("./images/teaxture.png") repeat;
+        background-size: contain;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: rgb(255, 193, 113);
+        filter: drop-shadow(0px 0px 12px #2e1b00);
+        -webkit-text-stroke: 1px #3f2500;
+        text-stroke: 2px #422700;
+        text-shadow:
+          2px 0 black,
+          -2px 0 black,
+          0 2px black,
+          0 -2px black,
+          2px 2px black,
+          -2px -2px black,
+          2px -2px 15px black,
+          -2px 2px 15px black;
+        z-index: 9;
+      }
+      
+      .paragraph {
+        width: fit-content;
+        height: auto;
+        font-size: 36px;
+        font-weight: 700;
+        line-height: 1.2;
+        font-family: "font1", serif;
+        letter-spacing: -2px;
+        background: url("./images/teaxture.png") repeat;
+        background-size: contain;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: #ffc171;
+        filter: drop-shadow(0px 0px 12px #2e1b00);
+        -webkit-text-stroke: 1px #3f2500;
+        text-stroke: 2px #422700;
+        text-shadow:
+          2px 0 black,
+          -2px 0 black,
+          0 2px black,
+          0 -2px black,
+          2px 2px black,
+          -2px -2px black,
+          2px -2px 15px black,
+          -2px 2px 15px black;
+        z-index: 9;
+      }
+
+      /* Responsive Typography */
+      @media (max-width: 768px) {
+        .sectionHeading {
+          font-size: 36px;
+        }
+        .paragraph {
+          font-size: 24px;
+        }
+        .myHeading {
+          font-size: 48px !important;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Loader -->
+    <section
+      id="loader"
+      class="w-full h-screen flex justify-center items-center bg-[url('./images/BGDark.png')] bg-[length:100%_100%] fixed top-0 left-0 z-50"
+    >
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img
+              src="./images/logo.png"
+              alt="Age of Sosaria Logo"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="flip-card-back">
+            <img
+              src="./images/logo.png"
+              alt="Age of Sosaria Logo"
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="smooth-wrapper">
+      <div id="smooth-content">
+        <!-- Header -->
+        <header
+          id="header"
+          class="w-full h-auto middleCenter bg-[url('./images/header-bg.png')] bg-[length:100%_100%] p-5 pb-3"
+        >
+          <img src="./images/logo.png" class="w-24" alt="Age of Sosaria Logo" />
+          <h1 class="myHeading text-7xl font-bold font-font1">
+            Age of Sosaria
+          </h1>
+        </header>
+
+        <!-- Navigation -->
+        <nav
+          id="navBar"
+          class="w-full h-auto middleCenter bg-[url('./images/nav-bg.png')] bg-[length:100%_100%] pt-7 pb-4"
+        >
+          <ul
+            class="w-full max-w-md text-amber-600 font-semibold middleCenter gap-8 flex-wrap"
+          >
+            <li class="border border-amber-700 rounded-md px-5 py-2 cursor-pointer hover:bg-amber-700 hover:text-white transition-colors">Home</li>
+            <li class="cursor-pointer hover:text-amber-400 transition-colors">Getting started</li>
+            <li class="cursor-pointer hover:text-amber-400 transition-colors">Rules</li>
+            <li class="cursor-pointer hover:text-amber-400 transition-colors">Contact us</li>
+          </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main
+          id="main"
+          class="w-full h-auto min-h-screen bg-[url('./images/BGDark.png')] bg-[length:100%_100%] bg-fixed p-1 py-20 flex flex-col gap-20 justify-center"
+        >
+          <!-- Section One: Welcome -->
+          <section id="sectionOne" class="w-full h-auto middleCenter px-4">
+            <div
+              class="w-full h-auto max-w-[1120px] p-5 py-10 bg-[url('./images/large-bg.png')] bg-[length:100%_100%] flex flex-col justify-center items-center"
+            >
+              <h2 class="sectionHeading mb-8">
+                Welcome to Age of Sosaria
+              </h2>
+
+              <div class="w-full max-w-[900px] h-auto p-8">
+                <h3 class="paragraph py-5 text-center">
+                  A custom Ultima Online shard focused on classic roots,
+                  meaningful progression, and long-term play.
+                </h3>
+                <h3 class="paragraph text-center">
+                  The lands of Sosaria are alive once more—a world shaped by
+                  danger, discovery, and the choices of its players.
+                </h3>
+                <h3 class="paragraph py-5 text-center">
+                  Whether you seek glory in battles, fortune in trade, or a
+                  quiet life in the wilds; Your story begins here.
+                </h3>
+              </div>
+
+              <a
+                href="#"
+                class="inline-block relative px-10 py-4 md:px-14 md:py-6 font-cinzel text-lg md:text-xl font-bold text-black uppercase tracking-widest transition-all duration-300 hover:scale-110 active:scale-95 group"
+              >
+                <div
+                  class="absolute inset-0 bg-cover bg-center border-2 border-[#b48446] shadow-[0_8px_15px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:shadow-[0_12px_25px_rgba(180,132,70,0.6)]"
+                  style="
+                    background-image: url('./images/button-bg.png');
+                    filter: sepia(0.2) brightness(1.2);
+                  "
+                ></div>
+                <span class="relative z-10">Download & Play Now</span>
+              </a>
+            </div>
+          </section>
+
+          <!-- Section Two: Why Play -->
+          <section id="sectionTwo" class="w-full h-auto middleCenter px-4">
+            <div
+              class="scrollWrapper w-full h-auto max-w-[1120px] bg-[url('./images/large-bg.png')] bg-[length:100%_100%] relative overflow-hidden"
+            >
+              <div
+                class="w-full h-auto py-4 bg-[url('./images/large-bg.png')] bg-[length:100%_100%]"
+              >
+                <h2 class="sectionHeading splitHeading">Why Play Age of Sosaria?</h2>
+              </div>
+
+              <div class="scrollPaper w-full px-8 pb-8" style="height: 0; overflow: hidden">
+                <ul class="w-fit mx-auto pt-6 flex flex-col gap-3">
+                  <li class="w-full flex items-start gap-3">
+                    <div
+                      class="w-4 h-4 mt-2 border-3 border-black bg-[#ffc171] rounded-full shadow-xl flex-shrink-0"
+                    ></div>
+                    <p class="paragraph">
+                      Classic inspired gameplay with custom systems
+                    </p>
+                  </li>
+                  <li class="w-full flex items-start gap-3">
+                    <div
+                      class="w-4 h-4 mt-2 border-3 border-black bg-[#ffc171] rounded-full shadow-xl flex-shrink-0"
+                    ></div>
+                    <p class="paragraph">
+                      Meaningful progression and long term characters
+                    </p>
+                  </li>
+                  <li class="w-full flex items-start gap-3">
+                    <div
+                      class="w-4 h-4 mt-2 border-3 border-black bg-[#ffc171] rounded-full shadow-xl flex-shrink-0"
+                    ></div>
+                    <p class="paragraph">Player driven economy</p>
+                  </li>
+                  <li class="w-full flex items-start gap-3">
+                    <div
+                      class="w-4 h-4 mt-2 border-3 border-black bg-[#ffc171] rounded-full shadow-xl flex-shrink-0"
+                    ></div>
+                    <p class="paragraph">
+                      Balanced carefully designed mechanics
+                    </p>
+                  </li>
+                  <li class="w-full flex items-start gap-3">
+                    <div
+                      class="w-4 h-4 mt-2 border-3 border-black bg-[#ffc171] rounded-full shadow-xl flex-shrink-0"
+                    ></div>
+                    <p class="paragraph">
+                      Active development and ongoing improvements
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section Three: World at a Glance -->
+          <section id="sectionThree" class="w-full h-auto middleCenter px-4">
+            <div
+              class="scrollWrapper3 w-full h-auto max-w-[1120px] bg-[url('./images/large-bg.png')] bg-[length:100%_100%] relative overflow-hidden"
+            >
+              <div
+                class="w-full h-auto py-4 bg-[url('./images/large-bg.png')] bg-[length:100%_100%]"
+              >
+                <h2 class="sectionHeading splitHeading3">World at a Glance</h2>
+              </div>
+
+              <div
+                class="scrollPaper3 w-full px-8 pb-8"
+                style="height: 0; overflow: hidden"
+              >
+                <div class="w-full flex flex-wrap justify-center items-start gap-8 pt-6">
+                  <ul class="w-fit flex flex-col gap-3">
+                    <li class="w-full flex items-start gap-3">
+                      <div
+                        class="w-4 h-4 mt-2 border-3 border-black bg-[#ffc171] rounded-full shadow-xl flex-shrink-0"
+                      ></div>
+                      <p class="paragraph paragraph3">
+                        Server Type: Custom Classic
+                      </p>
+                    </li>
+                    <li class="w-full flex items-start gap-3">
+                      <div
+                        class="w-4 h-4 mt-2 border-3 border-black bg-[#ffc171] rounded-full shadow-xl flex-shrink-0"
+                      ></div>
+                      <p class="paragraph paragraph3">Skill Cap: 700</p>
+                    </li>
+                    <li class="w-full flex items-start gap-3">
+                      <div
+                        class="w-4 h-4 mt-2 border-3 border-black bg-[#ffc171] rounded-full shadow-xl flex-shrink-0"
+                      ></div>
+                      <p class="paragraph paragraph3">Stat Cap: 250</p>
+                    </li>
+                  </ul>
+                  <ul class="w-fit flex flex-col gap-3">
+                    <li class="w-full flex items-start gap-3">
+                      <div
+                        class="w-4 h-4 mt-2 border-3 border-black bg-[#ffc171] rounded-full shadow-xl flex-shrink-0"
+                      ></div>
+                      <p class="paragraph paragraph3">
+                        Housing: 1 house per account
+                      </p>
+                    </li>
+                    <li class="w-full flex items-start gap-3">
+                      <div
+                        class="w-4 h-4 mt-2 border-3 border-black bg-[#ffc171] rounded-full shadow-xl flex-shrink-0"
+                      ></div>
+                      <p class="paragraph paragraph3">
+                        Accounts: 3 accounts per player
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Section Four: Join the Community -->
+          <section id="sectionFour" class="w-full h-auto middleCenter px-4">
+            <div
+              class="scrollWrapper4 w-full h-auto max-w-[1120px] bg-[url('./images/large-bg.png')] bg-[length:100%_100%] relative overflow-hidden"
+            >
+              <div
+                class="w-full h-auto py-4 bg-[url('./images/large-bg.png')] bg-[length:100%_100%]"
+              >
+                <h2 class="sectionHeading splitHeading4">Join the Community</h2>
+              </div>
+
+              <div
+                class="scrollPaper4 w-full px-8 pb-8 flex flex-col items-center gap-6"
+                style="height: 0; overflow: hidden"
+              >
+                <p class="paragraph paragraph4 text-center pt-6">
+                  Meet other adventurers, get help, and stay updated on the latest changes.
+                </p>
+                
+                <a
+                  href="#"
+                  class="inline-block relative px-10 py-4 md:px-14 md:py-6 font-cinzel text-lg md:text-xl font-bold text-black uppercase tracking-widest transition-all duration-300 hover:scale-110 active:scale-95 group"
+                >
+                  <div
+                    class="absolute inset-0 bg-cover bg-center border-2 border-[#b48446] shadow-[0_8px_15px_rgba(0,0,0,0.5)] transition-all duration-300 group-hover:shadow-[0_12px_25px_rgba(180,132,70,0.6)]"
+                    style="
+                      background-image: url('./images/button-bg.png');
+                      filter: sepia(0.2) brightness(1.2);
+                    "
+                  ></div>
+                  <span class="relative z-10">Join Our Discord</span>
+                </a>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <!-- Footer -->
+        <footer
+          id="footer"
+          class="w-full h-auto flex flex-col items-center justify-center gap-5 p-5 pt-22 pb-20 bg-[url('./images/header-bg.png')] bg-[length:100%_100%]"
+        >
+          <div class="w-full h-auto middleCenter gap-8 text-amber-600 flex-wrap">
+            <span class="cursor-pointer hover:text-amber-400 transition-colors">Download</span>
+            <span>|</span>
+            <span class="cursor-pointer hover:text-amber-400 transition-colors">Privacy</span>
+            <span>|</span>
+            <span class="cursor-pointer hover:text-amber-400 transition-colors">Rules</span>
+          </div>
+
+          <div class="middleCenter text-amber-600 flex-col gap-2">
+            <p class="middleCenter gap-2">
+              <img src="./images/logo.png" alt="Age of Sosaria Logo" width="40" />
+              <span>©Age of Sosaria</span>
+            </p>
+            <p>Custom Ultima Online Shard</p>
+          </div>
+
+          <div class="middleCenter gap-5 text-amber-600 flex-wrap">
+            <span class="cursor-pointer hover:text-amber-400 transition-colors">Privacy Policy</span>
+            <span class="cursor-pointer hover:text-amber-400 transition-colors">Terms of Service</span>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Register GSAP plugins
+        gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
+        
+        // Initialize smooth scrolling
+        ScrollSmoother.create({
+          smooth: 1,
+          effects: true,
+          smoothTouch: 0.1,
+        });
+
+        // Loader animation
+        gsap.to(".flip-card", {
+          opacity: 1,
+          duration: 0.1,
+          ease: "none",
+        });
+
+        const loaderTimeline = gsap.timeline();
+        loaderTimeline
+          .from(".flip-card-inner", {
+            y: -500,
+            rotateY: 360,
+            duration: 1,
+            ease: "power2.out",
+          })
+          .to(".flip-card-inner", {
+            scale: 3,
+            duration: 0.5,
+            ease: "power2.in",
+          })
+          .to("#loader", {
+            opacity: 0,
+            duration: 1,
+            onComplete: () => {
+              document.getElementById("loader").style.display = "none";
+            },
+          });
+
+        // Section animation setup
+        const sections = [
+          {
+            wrapper: ".scrollWrapper",
+            paper: ".scrollPaper",
+            heading: ".splitHeading",
+            paragraphs: ".scrollPaper .paragraph",
+            height: 450,
+          },
+          {
+            wrapper: ".scrollWrapper3",
+            paper: ".scrollPaper3",
+            heading: ".splitHeading3",
+            paragraphs: ".paragraph3",
+            height: 350,
+          },
+          {
+            wrapper: ".scrollWrapper4",
+            paper: ".scrollPaper4",
+            heading: ".splitHeading4",
+            paragraphs: ".paragraph4",
+            height: 350,
+          },
+        ];
+
+        sections.forEach((section, index) => {
+          const wrapper = document.querySelector(section.wrapper);
+          const paper = document.querySelector(section.paper);
+          const paragraphs = document.querySelectorAll(section.paragraphs);
+          
+          if (!wrapper || !paper) return;
+
+          // Split text for animations
+          const splitHeading = new SplitText(section.heading, {
+            type: "lines,words,chars",
+          });
+          
+          const splitParagraphs = paragraphs.length > 0 
+            ? new SplitText(paragraphs, { type: "words,chars" })
+            : null;
+
+          // Create scroll-triggered timeline
+          const timeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: wrapper,
+              start: "top 80%",
+              end: "+=500",
+              scrub: 1,
+              // markers: true, // Remove in production
+            },
+          });
+
+          // Animate heading
+          timeline.from(splitHeading.lines, {
+            y: 100,
+            opacity: 0,
+            duration: 2,
+            stagger: 0.2,
+            ease: "power2.out",
+          });
+
+          // Expand paper/content area
+          timeline.to(
+            paper,
+            {
+              height: section.height,
+              duration: 3,
+              ease: "power2.inOut",
+            },
+            "+=0.5"
+          );
+
+          // Animate paragraph characters
+          if (splitParagraphs && splitParagraphs.chars.length > 0) {
+            timeline.from(
+              splitParagraphs.chars,
+              {
+                scale: 1.3,
+                opacity: 0,
+                duration: 0.1,
+                stagger: 0.05,
+                ease: "power1.out",
+              },
+              "-=1"
+            );
+          }
+        });
+
+        // Refresh ScrollTrigger after a short delay to ensure proper positioning
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 100);
+      });
+    </script>
+  </body>
+</html>
