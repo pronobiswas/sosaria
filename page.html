@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/png" href="./favicon.png"> -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
@@ -339,7 +341,7 @@
               </div>
               <!-- ---scroll content--- -->
               <div
-                class="scrollPaper3 w-full flex justify-center items-center gap-5 px-20 "
+                class="scrollPaper3 w-full flex justify-center gap-5 px-20 "
                 style="height: 0; transform: scaleY(0); overflow-y: hidden;"
               >
                 <ul class="w-fit mx-auto pt-6 flex flex-col gap-3">
@@ -393,7 +395,7 @@
           <!-- &&&&&&&&&& sectiion four &&&&&&&&&&& -->
           <section id="sectionFour" class="w-full h-auto middleCenter">
             <div
-              class="scrollWrapper4 w-full h-auto max-w-[1120px] bg-[url('./images/large-bg.png')] bg-[length:100%_100%] relative"
+              class="scrollWrapper4 w-full h-auto max-w-[1120px] bg-[url('./images/large-bg.png')] bg-[length:100%_100%] "
             >
               <!--relative-->
               <!-- --scroll heading-- -->
@@ -404,11 +406,11 @@
               </div>
               <!-- ---scroll content--- -->
               <div
-                class="scrollPaper w-full"
-                style="height: 0px; overflow-y: hidden"
+                class="scrollPaper4 w-full flex flex-col justify-center items-center px-20"
+               style="height: 0px; overflow-y: hidden;"
               >
-              <p class="paragraph ">Meet other adventurers, get help, and stay updated on the latest changes.</p>
-              <p class=" paragraph4">Meet other adventurers, get help, and stay updated on the latest changes.</p>
+               <!--  -->
+              <p class="paragraph paragraph4 text-center mt-56 mb-10">Meet other adventurers, get help, and stay updated on the latest changes.</p>
               <a
                 href="#"
                 class="inline-block relative px-10 py-4 md:px-14 md:py-6 font-cinzel text-lg md:text-xl font-bold text-black uppercase tracking-widest transition-all duration-300 hover:scale-110 active:scale-95 group"
@@ -533,7 +535,6 @@
               start: "top 80%",
               end: "+=600",
               scrub: true,
-              markers: true,
             },
           });
           tl2
@@ -566,7 +567,7 @@
           const tl3 = gsap.timeline({
             scrollTrigger: {
               trigger: scrollWrappers3,
-              start: "top 80%",
+              start: "top 75%",
               end: "+=500",
               scrub: true,
               markers: true,
@@ -596,15 +597,19 @@
               },
               "-=0.5",
             );
+
+
+
              const tl4 = gsap.timeline({
             scrollTrigger: {
               trigger: scrollWrappers4,
-              start: "top 80%",
+              start: "top 75%",
               end: "+=200",
               scrub: true,
               markers: true,
             },
           });
+
           tl4
           .from(splitHeading4.lines,{
               y:100,
@@ -612,7 +617,7 @@
               stagger: 0.2,
             })
             .to(scrollWrappers4, {
-              height:500,
+              height:400,
               scale:1,
               duration: 4,
               ease: "none",
@@ -622,10 +627,11 @@
               split4.chars,
               {
                 scale: 1.3,
-                // opacity: 0,
+                opacity: 0,
                 duration: 0.1,
                 stagger: 0.1,
                 ease: "none",
+                z:1111
               },
               "-=0.5",
             );
